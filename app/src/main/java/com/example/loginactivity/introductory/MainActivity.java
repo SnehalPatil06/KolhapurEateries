@@ -1,4 +1,4 @@
-package com.example.loginactivity;
+package com.example.loginactivity.introductory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.loginactivity.R;
 
 public class MainActivity extends AppCompatActivity {
     ImageView logo;
