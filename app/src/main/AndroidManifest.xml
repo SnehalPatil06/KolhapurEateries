@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginActivity">
-        <activity android:name=".Authentication.Register"></activity>
+        <activity android:name=".Authentication.ProducerRegistration"></activity>
+        <activity android:name=".Authentication.Register" />
         <activity android:name=".Authentication.Login" />
         <activity android:name=".introductory.MainActivity">
             <intent-filter>
