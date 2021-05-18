@@ -27,6 +27,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import android.widget.Toast;
+
+import com.example.loginactivity.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,6 +44,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Register extends AppCompatActivity {
@@ -53,6 +59,11 @@ public class Register extends AppCompatActivity {
     ProgressBar progressBar;
 
     FusedLocationProviderClient fusedLocationProviderClient;
+    EditText nameEdit, addressEdit, phoneEdit, emailEdit, passwordEdit;
+    String name, address, phone, email, password;
+
+    FirebaseAuth mAuth;
+    FirebaseFirestore mStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +85,7 @@ public class Register extends AppCompatActivity {
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
 
+
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,21 +100,29 @@ public class Register extends AppCompatActivity {
 
 
                 if (name.isEmpty()) {
+
+
+                if(name.isEmpty()){
                     nameEdit.setError("Name is required!");
                     return;
                 }
 
                 if (address.isEmpty()) {
+
+                if(address.isEmpty()){
                     addressEdit.setError("Enter valid address!");
                     return;
                 }
 
                 if (phone.isEmpty()) {
+                if(phone.isEmpty()){
                     phoneEdit.setError("Enter valid phone!");
                     return;
                 }
 
                 if (email.isEmpty()) {
+
+                if(email.isEmpty()){
                     emailEdit.setError("Enter valid email!");
                     return;
                 }
@@ -112,6 +132,12 @@ public class Register extends AppCompatActivity {
                     return;
                 }
                 if (password.length() < 6) {
+
+                if(password.isEmpty()){
+                    passwordEdit.setError("Enter password!");
+                    return;
+                }
+                if(password.length() < 6){
                     passwordEdit.setError("password length should be more than 6!");
                     return;
                 }
@@ -128,6 +154,7 @@ public class Register extends AppCompatActivity {
 
                 progressBar.setVisibility(View.VISIBLE);
 
+
                 mAuth = FirebaseAuth.getInstance();
                 mStore = FirebaseFirestore.getInstance();
 
@@ -138,6 +165,7 @@ public class Register extends AppCompatActivity {
                         FirebaseUser user = mAuth.getCurrentUser();
                         //send to next page
 
+                        Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();
 
                         DocumentReference df = mStore.collection("userAuthentication").document(user.getUid());
 
@@ -148,6 +176,10 @@ public class Register extends AppCompatActivity {
                         userInfo.put("UserEmail", email);
                         userInfo.put("City", city);
                         userInfo.put("Country", country);
+                        userInfo.put("FullName",name);
+                        userInfo.put("Address", address);
+                        userInfo.put("PhoneNumber", phone);
+                        userInfo.put("UserEmail", email);
                         userInfo.put("imageUrl", "");
                         userInfo.put("isUser", "0");
 
@@ -159,6 +191,9 @@ public class Register extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Registered Successfully", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(getApplicationContext(), Login.class));
                         finish();
+
+
+
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -166,6 +201,8 @@ public class Register extends AppCompatActivity {
                         Toast.makeText(Register.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         progressBar.setVisibility(View.GONE);
 
+
+                        Toast.makeText(Register.this, "Unable to create user, please try again!", Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -234,5 +271,9 @@ public class Register extends AppCompatActivity {
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
 
+
     }
+
+
+
 }
