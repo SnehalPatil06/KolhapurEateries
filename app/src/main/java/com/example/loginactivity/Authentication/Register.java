@@ -59,11 +59,7 @@ public class Register extends AppCompatActivity {
     ProgressBar progressBar;
 
     FusedLocationProviderClient fusedLocationProviderClient;
-    EditText nameEdit, addressEdit, phoneEdit, emailEdit, passwordEdit;
-    String name, address, phone, email, password;
 
-    FirebaseAuth mAuth;
-    FirebaseFirestore mStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,39 +95,26 @@ public class Register extends AppCompatActivity {
                 country = stateEdit.getText().toString().trim();
 
 
-                if (name.isEmpty()) {
-
-
                 if(name.isEmpty()){
                     nameEdit.setError("Name is required!");
                     return;
                 }
-
-                if (address.isEmpty()) {
 
                 if(address.isEmpty()){
                     addressEdit.setError("Enter valid address!");
                     return;
                 }
 
-                if (phone.isEmpty()) {
                 if(phone.isEmpty()){
                     phoneEdit.setError("Enter valid phone!");
                     return;
                 }
-
-                if (email.isEmpty()) {
 
                 if(email.isEmpty()){
                     emailEdit.setError("Enter valid email!");
                     return;
                 }
 
-                if (password.isEmpty()) {
-                    passwordEdit.setError("Enter password!");
-                    return;
-                }
-                if (password.length() < 6) {
 
                 if(password.isEmpty()){
                     passwordEdit.setError("Enter password!");
@@ -256,12 +239,6 @@ public class Register extends AppCompatActivity {
 
     public void getLocation(View view) {
 
-
-
-
-
-
-
         //check permission
         if (ActivityCompat.checkSelfPermission(Register.this
                 , Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -275,5 +252,5 @@ public class Register extends AppCompatActivity {
     }
 
 
-
 }
+
