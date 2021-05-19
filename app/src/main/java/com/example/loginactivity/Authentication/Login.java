@@ -1,8 +1,10 @@
 package com.example.loginactivity.Authentication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,18 +15,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.loginactivity.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Login extends AppCompatActivity {
 
     Button login;
-    TextView textView;
+    TextView textView, forgetPass;
     EditText gmail_field, pass_field;
     String gmail_login, pass_login;
     private FirebaseAuth mAuth;
@@ -39,6 +45,46 @@ public class Login extends AppCompatActivity {
         textView = findViewById(R.id.link);
         gmail_field = findViewById(R.id.email);
         pass_field = findViewById(R.id.password);
+        forgetPass = findViewById(R.id.forgot_password);
+
+        forgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final EditText taskEditText = new EditText(Login.this);
+                AlertDialog dialog = new AlertDialog.Builder(Login.this)
+                        .setTitle("Forgot Password")
+                        .setMessage("Enter your Email address?")
+                        .setView(taskEditText)
+                        .setPositiveButton("Reset", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String task = String.valueOf(taskEditText.getText());
+
+                                FirebaseAuth auth = FirebaseAuth.getInstance();
+
+                                auth.sendPasswordResetEmail(task.trim())
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                Toast.makeText(Login.this, "Resent link sent to your Email!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull @NotNull Exception e) {
+                                        Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                    }
+                                });
+
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", null)
+                        .create();
+                dialog.show();
+            }
+        });
+
 
         mAuth = FirebaseAuth.getInstance();
         fstore = FirebaseFirestore.getInstance();
