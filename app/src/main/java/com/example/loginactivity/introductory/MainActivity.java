@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 Color.parseColor("#77acf1"),R.drawable.scooter,R.drawable.fast);
 
         PaperOnboardingPage src3 = new PaperOnboardingPage("Easy Payment","Get Payment done as fast as Cheetah",
-                Color.parseColor("#fcecdd"),R.drawable.payment,R.drawable.card);
+                Color.parseColor("#87CEEB"),R.drawable.payment,R.drawable.card);
 
         ArrayList <PaperOnboardingPage> elements = new ArrayList<>();
         elements.add(src1);
