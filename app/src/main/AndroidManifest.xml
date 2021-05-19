@@ -3,9 +3,7 @@
     package="com.example.loginactivity">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -14,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginActivity">
+        <activity android:name=".ConsumerActivities.demo"></activity>
         <activity android:name=".Authentication.ProducerRegistration" />
         <activity android:name=".Authentication.Register" />
         <activity android:name=".Authentication.Login" />

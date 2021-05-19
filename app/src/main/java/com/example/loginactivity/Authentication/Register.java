@@ -189,6 +189,8 @@ public class Register extends AppCompatActivity {
                     }
                 });
 
+                progressBar.setVisibility(View.GONE);
+
             }
         });
 
@@ -209,8 +211,6 @@ public class Register extends AppCompatActivity {
 
                         progressBar.setVisibility(View.VISIBLE);
 
-                        Toast.makeText(Register.this, "Your current Location", Toast.LENGTH_SHORT).show();
-
                         Geocoder geocoder = new Geocoder(Register.this,
                                 Locale.getDefault());
 
@@ -221,12 +221,16 @@ public class Register extends AppCompatActivity {
                         stateEdit.setText(addresses.get(0).getCountryName());
                         addressEdit.setText(addresses.get(0).getAddressLine(0));
 
+
+                        if(!cityEdit.getText().toString().isEmpty()){
+                            Toast.makeText(Register.this, "Your current Location", Toast.LENGTH_SHORT).show();
+                        }
+
                         progressBar.setVisibility(View.GONE);
 
 
                     }catch (Exception e){
                         e.printStackTrace();
-//                        Toast.makeText(Register.this, "boogle boogle boogle", Toast.LENGTH_SHORT).show();
 
                     }
 
