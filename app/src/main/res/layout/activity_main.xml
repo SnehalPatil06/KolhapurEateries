@@ -27,7 +27,7 @@
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintVertical_bias=".32"
-        app:layout_constraintHorizontal_bias=".5"
+        app:layout_constraintHorizontal_bias=".6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
