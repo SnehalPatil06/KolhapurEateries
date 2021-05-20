@@ -4,19 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".introductory.MainActivity">
+    tools:context=".introductory.MainActivity"
+    android:background="@color/turquoise">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/picnic"
-        app:layout_constraintVertical_bias=".3"
-        app:layout_constraintHorizontal_bias=".01"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/textlogo"
@@ -24,10 +15,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/berkshire_swash"
         android:text="Kolhapur Eateries"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintVertical_bias=".32"
-        app:layout_constraintHorizontal_bias=".6"
+        android:textColor="@color/white"
+        android:textSize="40sp"
+        app:layout_constraintVertical_bias=".4"
+        app:layout_constraintHorizontal_bias=".5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +34,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7"
+        app:layout_constraintVertical_bias="0.8"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/cooker" />
@@ -52,6 +43,7 @@
         android:id="@+id/fragment_manager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
          />
 
 

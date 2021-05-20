@@ -26,6 +26,7 @@
         <activity android:name=".Authentication.Register" />
         <activity android:name=".Authentication.Login" />
         <activity android:name=".introductory.MainActivity" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
