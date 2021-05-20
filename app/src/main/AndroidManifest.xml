@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginActivity" >
         <activity
+            android:name=".ConsumerActivities.ConsumerNavigation"
+            android:label="@string/title_activity_consumer_navigation"
+            android:theme="@style/Theme.LoginActivity.NoActionBar" >
+        </activity>
+        <activity
             android:name=".good"
             android:label="@string/title_activity_good"
             android:theme="@style/Theme.LoginActivity.NoActionBar" >
