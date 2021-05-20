@@ -1,9 +1,5 @@
 package com.example.loginactivity.Authentication;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +7,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.loginactivity.R;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -35,6 +34,7 @@ public class Login extends AppCompatActivity {
     String gmail_login, pass_login;
     private FirebaseAuth mAuth;
     FirebaseFirestore fstore;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,8 @@ public class Login extends AppCompatActivity {
         gmail_field = findViewById(R.id.email);
         pass_field = findViewById(R.id.password);
         forgetPass = findViewById(R.id.forgot_password);
+        progressBar = findViewById(R.id.progressBar2);
+        progressBar.setVisibility(View.GONE);
 
         forgetPass.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,17 +62,24 @@ public class Login extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 String task = String.valueOf(taskEditText.getText());
 
+                                if(task.isEmpty()){
+                                    Toast.makeText(Login.this, "Please enter valid Email!", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                progressBar.setVisibility(View.VISIBLE);
                                 FirebaseAuth auth = FirebaseAuth.getInstance();
 
                                 auth.sendPasswordResetEmail(task.trim())
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void unused) {
+                                                progressBar.setVisibility(View.GONE);
                                                 Toast.makeText(Login.this, "Resent link sent to your Email!", Toast.LENGTH_SHORT).show();
                                             }
                                         }).addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull @NotNull Exception e) {
+                                        progressBar.setVisibility(View.GONE);
                                         Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 
                                     }
@@ -107,19 +116,21 @@ public class Login extends AppCompatActivity {
 
                 //Date is valid
                 //Login the user
-
+                progressBar.setVisibility(View.VISIBLE);
                 mAuth.signInWithEmailAndPassword(gmail_login, pass_login).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_LONG).show();
 
                         checkUserAccessLevel(authResult.getUser().getUid());
-
+                        progressBar.setVisibility(View.GONE);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast.makeText(Login.this,e.getMessage(),Toast.LENGTH_LONG).show();
+                        progressBar.setVisibility(View.GONE);
+
                     }
                 });
 
@@ -153,7 +164,7 @@ public class Login extends AppCompatActivity {
                     finish();
                 }
                 else if(documentSnapshot.getString("isUser")!= null){
-//                    startActivity(new Intent(Login.this, ModernDashboard.class));
+//                    startActivity(new Intent(Login.this, ConsumerDashboardActivity.class));
                     Toast.makeText(Login.this, "Login as customer", Toast.LENGTH_SHORT).show();
                     finish();
                 }
@@ -178,7 +189,7 @@ public class Login extends AppCompatActivity {
                         finish();
                     }
                     if(documentSnapshot.getString("isUser")!=null){
-//                        startActivity(new Intent(getApplicationContext(), ModernDashboard.class));
+//                        startActivity(new Intent(getApplicationContext(), ConsumerDashboardActivity.class));
                         Toast.makeText(Login.this, "Login as customer", Toast.LENGTH_SHORT).show();
 
                         finish();
