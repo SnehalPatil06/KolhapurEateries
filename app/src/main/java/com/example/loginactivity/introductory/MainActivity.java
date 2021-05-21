@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -14,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.loginactivity.Authentication.Login;
 import com.example.loginactivity.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.ramotion.paperonboarding.PaperOnboardingFragment;
 import com.ramotion.paperonboarding.PaperOnboardingPage;
 import com.ramotion.paperonboarding.listeners.PaperOnboardingOnRightOutListener;
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     TextView textView;
     LottieAnimationView lottieAnimationView;
+    FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,12 +34,21 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textlogo);
         lottieAnimationView = findViewById(R.id.animation);
+        mAuth = FirebaseAuth.getInstance();
+
 
         //Adding action listner to show proper output with delay
         textView.animate().translationY(1700).setDuration(1000).setStartDelay(5000);
         lottieAnimationView.animate().translationY(1600).setDuration(1000).setStartDelay(5000).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
+
+
+                if(mAuth.getCurrentUser()!= null){
+                    Toast.makeText(MainActivity.this, "Please wait you are already Login!", Toast.LENGTH_SHORT).show();
+//                    startActivity(new Intent(getApplicationContext(), demo.class));
+                    finish();
+                }
 
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 final PaperOnboardingFragment paperOnboardingFragment = PaperOnboardingFragment.newInstance(getDataForOnboarding());
