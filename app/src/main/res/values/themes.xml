@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.LoginActivity" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/turquoise</item>
-        <item name="colorPrimaryVariant">@color/turquoise</item>
+        <item name="colorPrimary">@color/status</item>
+        <item name="colorPrimaryVariant">@color/status</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,8 +12,17 @@
 
         <!-- Status bar color. -->
         <item name="statusBarBackground">@color/white</item>
-        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/turquoise</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@color/status</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.LoginActivity.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.LoginActivity.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.LoginActivity.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>
