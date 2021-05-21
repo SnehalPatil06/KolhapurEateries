@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.loginactivity.Authentication.Login;
+import com.example.loginactivity.ConsumerActivities.NavigationDrawer;
 import com.example.loginactivity.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ramotion.paperonboarding.PaperOnboardingFragment;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(mAuth.getCurrentUser()!= null){
                     Toast.makeText(MainActivity.this, "Please wait you are already Login!", Toast.LENGTH_SHORT).show();
-//                    startActivity(new Intent(getApplicationContext(), demo.class));
+                    startActivity(new Intent(getApplicationContext(), NavigationDrawer.class));
                     finish();
                 }
 

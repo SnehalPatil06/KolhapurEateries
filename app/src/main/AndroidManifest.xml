@@ -14,9 +14,8 @@
         android:theme="@style/Theme.LoginActivity">
         <activity
             android:name=".ConsumerActivities.NavigationDrawer"
-            android:label="@string/title_activity_navigation_drawer"
+            android:label="@string/title_activity_navigation_consumer"
             android:theme="@style/Theme.LoginActivity.NoActionBar"></activity>
-        <activity android:name=".ConsumerActivities.demo" />
         <activity android:name=".Authentication.ProducerRegistration" />
         <activity android:name=".Authentication.Register" />
         <activity android:name=".Authentication.Login" />

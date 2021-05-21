@@ -13,4 +13,14 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_good">good</string>
     <string name="title_activity_consumer_navigation">ConsumerNavigation</string>
+    <string name="title_activity_navigation_consumer">NavigationConsumerActivity</string>
+    <string name="profile">Profile</string>
+    <string name="category">Category</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="offers">Offers</string>
+    <string name="new_products">New Products</string>
+    <string name="my_orders">My Orders</string>
+    <string name="my_carts">My Carts</string>
+    <string name="payments">Payments</string>
 </resources>
