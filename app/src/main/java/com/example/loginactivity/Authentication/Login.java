@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.loginactivity.ConsumerActivities.NavigationDrawer;
 import com.example.loginactivity.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -164,7 +165,7 @@ public class Login extends AppCompatActivity {
                     finish();
                 }
                 else if(documentSnapshot.getString("isUser")!= null){
-//                    startActivity(new Intent(Login.this, ConsumerDashboardActivity.class));
+                    startActivity(new Intent(Login.this, NavigationDrawer.class));
                     Toast.makeText(Login.this, "Login as customer", Toast.LENGTH_SHORT).show();
                     finish();
                 }
@@ -189,7 +190,7 @@ public class Login extends AppCompatActivity {
                         finish();
                     }
                     if(documentSnapshot.getString("isUser")!=null){
-//                        startActivity(new Intent(getApplicationContext(), ConsumerDashboardActivity.class));
+                        startActivity(new Intent(getApplicationContext(), NavigationDrawer.class));
                         Toast.makeText(Login.this, "Login as customer", Toast.LENGTH_SHORT).show();
 
                         finish();

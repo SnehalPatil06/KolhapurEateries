@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.loginactivity.Authentication.Login;
+import com.example.loginactivity.ConsumerActivities.NavigationDrawer;
 import com.example.loginactivity.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ramotion.paperonboarding.PaperOnboardingFragment;
@@ -40,15 +41,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Adding action listner to show proper output with delay
-        textView.animate().translationY(1700).setDuration(1000).setStartDelay(4000);
-        lottieAnimationView.animate().translationY(1600).setDuration(1000).setStartDelay(4000).setListener(new Animator.AnimatorListener() {
+        textView.animate().translationY(1700).setDuration(1000).setStartDelay(5000);
+        lottieAnimationView.animate().translationY(1600).setDuration(1000).setStartDelay(5000).setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
 
 
                 if(mAuth.getCurrentUser()!= null){
                     Toast.makeText(MainActivity.this, "Please wait you are already Login!", Toast.LENGTH_SHORT).show();
-//                    startActivity(new Intent(getApplicationContext(), demo.class));
+                    startActivity(new Intent(getApplicationContext(), NavigationDrawer.class));
                     finish();
                 }
 
@@ -92,13 +93,13 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<PaperOnboardingPage> getDataForOnboarding() {
 
         PaperOnboardingPage src1 = new PaperOnboardingPage("Fresh Food","Get best quality food everyday",
-                Color.parseColor("#00ADB5"),R.drawable.restaurant,R.drawable.dish);
+                Color.parseColor("#87ceeb"),R.drawable.restaurant,R.drawable.dish);
 
         PaperOnboardingPage src2 = new PaperOnboardingPage("Fast Delivery","Get fast delivery at your doorstep",
-                Color.parseColor("#00ADB5"),R.drawable.delivery,R.drawable.fast);
+                Color.parseColor("#87ceeb"),R.drawable.delivery,R.drawable.fast);
 
         PaperOnboardingPage src3 = new PaperOnboardingPage("Easy Payment","Get Payment done as fast as Cheetah",
-                Color.parseColor("#00ADB5"),R.drawable.payment,R.drawable.card);
+                Color.parseColor("#87ceeb"),R.drawable.payment,R.drawable.card);
 
         ArrayList <PaperOnboardingPage> elements = new ArrayList<>();
         elements.add(src1);
