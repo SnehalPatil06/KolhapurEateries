@@ -39,19 +39,25 @@
             android:id="@+id/imageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="30dp"
+            android:src="@drawable/ic_baseline_my_location_24"
             android:layout_marginRight="30dp"
             android:onClick="getLocation"
-            android:src="@drawable/ic_baseline_my_location_24" />
+            android:layout_marginTop="30dp"
+            android:layout_alignParentRight="true"/>
 
         <TextView
-            android:layout_below="@id/imageButton"
             android:layout_width="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_margin="5dp"
             android:layout_height="wrap_content"
-            android:text="Current Location"/>
+            android:layout_below="@id/imageButton"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/roboto_slab"
+            android:text="Current Location" />
 
 
         <Button
@@ -62,13 +68,13 @@
             android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="59dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/button_bg"
             android:text="register"
             android:textColor="@android:color/white"
+            android:background="@drawable/button_bg"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
