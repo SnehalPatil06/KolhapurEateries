@@ -24,27 +24,27 @@
         tools:layout="@layout/fragment_category" />
     <fragment
         android:id="@+id/nav_offers"
-        android:name="com.example.loginactivity.ConsumerActivities.OffersFragment"
+        android:name="com.example.loginactivity.ConsumerActivities.drawerElements.OffersFragment"
         android:label="@string/offers"
         tools:layout="@layout/fragment_offers" />
     <fragment
         android:id="@+id/nav_new_products"
-        android:name="com.example.loginactivity.ConsumerActivities.NewProductsFragment"
+        android:name="com.example.loginactivity.ConsumerActivities.drawerElements.NewProductsFragment"
         android:label="@string/new_products"
         tools:layout="@layout/fragment_new_products" />
     <fragment
         android:id="@+id/nav_my_orders"
-        android:name="com.example.loginactivity.ConsumerActivities.MyOrdersFragment"
+        android:name="com.example.loginactivity.ConsumerActivities.drawerElements.MyOrdersFragment"
         android:label="@string/my_orders"
         tools:layout="@layout/fragment_my_orders" />
     <fragment
         android:id="@+id/nav_my_carts"
-        android:name="com.example.loginactivity.ConsumerActivities.MyCartsFragment"
+        android:name="com.example.loginactivity.ConsumerActivities.drawerElements.MyCartsFragment"
         android:label="@string/my_carts"
         tools:layout="@layout/fragment_my_carts" />
     <fragment
         android:id="@+id/nav_payments"
-        android:name="com.example.loginactivity.ConsumerActivities.PaymentFragment"
+        android:name="com.example.loginactivity.ConsumerActivities.drawerElements.PaymentFragment"
         android:label="@string/payments"
         tools:layout="@layout/fragment_payment" />
 </navigation>
