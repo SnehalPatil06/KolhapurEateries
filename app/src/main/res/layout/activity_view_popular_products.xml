@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ConsumerActivities.ViewPopularProducts">
 
-
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/view_all_rec"
         android:layout_width="match_parent"

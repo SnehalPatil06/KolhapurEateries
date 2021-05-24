@@ -1,10 +1,12 @@
 package com.example.loginactivity.ConsumerActivities;
 
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import android.os.Bundle;
 
@@ -28,6 +30,7 @@ public class ViewPopularProducts extends AppCompatActivity {
     List<ViewAllModel> viewAllModelList;
     ViewAllAdapter viewAllAdapter;
     FirebaseFirestore fstore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,6 +177,7 @@ public class ViewPopularProducts extends AppCompatActivity {
                 }
             });
         }
+
 
 
     }
