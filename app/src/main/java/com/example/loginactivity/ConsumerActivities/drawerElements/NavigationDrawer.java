@@ -1,4 +1,4 @@
-package com.example.loginactivity.ConsumerActivities;
+package com.example.loginactivity.ConsumerActivities.drawerElements;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;

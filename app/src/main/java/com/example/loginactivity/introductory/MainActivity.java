@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.loginactivity.Authentication.Login;
-import com.example.loginactivity.ConsumerActivities.NavigationDrawer;
+import com.example.loginactivity.ConsumerActivities.drawerElements.NavigationDrawer;
 import com.example.loginactivity.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ramotion.paperonboarding.PaperOnboardingFragment;
