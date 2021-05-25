@@ -1,21 +1,25 @@
 package com.example.loginactivity.models;
 
-public class NavCategoryModel {
+import java.io.Serializable;
+
+public class ViewAllModel implements Serializable {
 
     String description;
-    String discount;
     String img_url;
     String name;
+    String price;
+    String rating;
     String type;
 
-    public NavCategoryModel() {
+    public ViewAllModel() {
     }
 
-    public NavCategoryModel(String description, String discount, String img_url, String name, String type) {
+    public ViewAllModel(String description, String img_url, String name, String price, String rating, String type) {
         this.description = description;
-        this.discount = discount;
         this.img_url = img_url;
         this.name = name;
+        this.price = price;
+        this.rating = rating;
         this.type = type;
     }
 
@@ -25,14 +29,6 @@ public class NavCategoryModel {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(String discount) {
-        this.discount = discount;
     }
 
     public String getImg_url() {
@@ -49,6 +45,22 @@ public class NavCategoryModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
     public String getType() {

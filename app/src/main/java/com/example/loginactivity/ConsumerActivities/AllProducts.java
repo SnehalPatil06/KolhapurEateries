@@ -1,13 +1,10 @@
 package com.example.loginactivity.ConsumerActivities;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.ViewModel;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import android.os.Bundle;
 
@@ -25,7 +22,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewPopularProducts extends AppCompatActivity {
+public class AllProducts extends AppCompatActivity {
 
     RecyclerView recyclerView;
     List<ViewAllModel> viewAllModelList;
@@ -33,11 +30,11 @@ public class ViewPopularProducts extends AppCompatActivity {
     FirebaseFirestore fstore;
     Toolbar toolbar;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_popular_products);
+        setContentView(R.layout.activity_all_products);
+
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -46,7 +43,7 @@ public class ViewPopularProducts extends AppCompatActivity {
         recyclerView = findViewById(R.id.view_all_rec);
         fstore = FirebaseFirestore.getInstance();
 
-        String type = getIntent().getStringExtra("type");
+        String type = getIntent().getStringExtra("hometype");
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
@@ -55,10 +52,11 @@ public class ViewPopularProducts extends AppCompatActivity {
         viewAllAdapter = new ViewAllAdapter(this, viewAllModelList);
         recyclerView.setAdapter(viewAllAdapter);
 
+       //AllProducts
 
         ////////////Getting fruits////////////////
         if(type!= null && type.equalsIgnoreCase("fruits")){
-            fstore.collection("ViewAllPopularProducts").whereEqualTo("type","fruits").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            fstore.collection("AllProducts").whereEqualTo("type","fruits").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
 
@@ -75,7 +73,7 @@ public class ViewPopularProducts extends AppCompatActivity {
 
         ////////////Getting grocery////////////////
         if(type!= null && type.equalsIgnoreCase("grocery")){
-            fstore.collection("ViewAllPopularProducts").whereEqualTo("type","grocery").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            fstore.collection("AllProducts").whereEqualTo("type","grocery").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
 
@@ -93,7 +91,7 @@ public class ViewPopularProducts extends AppCompatActivity {
 
         ////////////Getting vegetables////////////////
         if(type!= null && type.equalsIgnoreCase("vegetables")){
-            fstore.collection("ViewAllPopularProducts").whereEqualTo("type","vegetables").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            fstore.collection("AllProducts").whereEqualTo("type","vegetables").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
 
@@ -110,7 +108,7 @@ public class ViewPopularProducts extends AppCompatActivity {
 
         ////////////Getting drinks////////////////
         if(type!= null && type.equalsIgnoreCase("drinks")){
-            fstore.collection("ViewAllPopularProducts").whereEqualTo("type","drinks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            fstore.collection("AllProducts").whereEqualTo("type","drinks").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
 
@@ -128,7 +126,7 @@ public class ViewPopularProducts extends AppCompatActivity {
 
         ////////////Getting other////////////////
         if(type!= null && type.equalsIgnoreCase("other")){
-            fstore.collection("ViewAllPopularProducts").whereEqualTo("type","other").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            fstore.collection("AllProducts").whereEqualTo("type","other").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
 
@@ -147,7 +145,7 @@ public class ViewPopularProducts extends AppCompatActivity {
 
         ////////////Getting dairy////////////////
         if(type!= null && type.equalsIgnoreCase("dairy")){
-            fstore.collection("ViewAllPopularProducts").whereEqualTo("type","dairy").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            fstore.collection("AllProducts").whereEqualTo("type","dairy").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
 
@@ -165,7 +163,7 @@ public class ViewPopularProducts extends AppCompatActivity {
 
         ////////////Getting Bakery////////////////
         if(type!= null && type.equalsIgnoreCase("bakery")){
-            fstore.collection("ViewAllPopularProducts").whereEqualTo("type","bakery").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            fstore.collection("AllProducts").whereEqualTo("type","bakery").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
 
@@ -183,7 +181,7 @@ public class ViewPopularProducts extends AppCompatActivity {
 
         ////////////Getting Spices////////////////
         if(type!= null && type.equalsIgnoreCase("spices")){
-            fstore.collection("ViewAllPopularProducts").whereEqualTo("type","spices").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            fstore.collection("AllProducts").whereEqualTo("type","spices").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                 @Override
                 public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
 
@@ -196,6 +194,7 @@ public class ViewPopularProducts extends AppCompatActivity {
                 }
             });
         }
+
 
 
 

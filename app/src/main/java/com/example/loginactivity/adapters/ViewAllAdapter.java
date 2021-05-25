@@ -12,21 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.loginactivity.ConsumerActivities.AllProducts;
+import com.example.loginactivity.ConsumerActivities.DetailedActivity;
 import com.example.loginactivity.R;
-import com.example.loginactivity.models.NavCategoryModel;
+import com.example.loginactivity.models.ViewAllModel;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-
-public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.ViewHolder> {
+public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHolder> {
 
     Context context;
-    List<NavCategoryModel> list;
+    List<ViewAllModel> list;
 
-    public NavCategoryAdapter(Context context, List<NavCategoryModel> list) {
+    public ViewAllAdapter(Context context, List<ViewAllModel> list) {
         this.context = context;
         this.list = list;
     }
@@ -34,23 +33,24 @@ public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.
     @NonNull
     @NotNull
     @Override
-    public NavCategoryAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.nav_cat_items, parent, false));
+    public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.view_all_items, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull NavCategoryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull ViewAllAdapter.ViewHolder holder, int position) {
 
         Glide.with(context).load(list.get(position).getImg_url()).into(holder.imageView);
         holder.name.setText(list.get(position).getName());
         holder.description.setText(list.get(position).getDescription());
-        holder.discount.setText(list.get(position).getDiscount());
+        holder.rating.setText(list.get(position).getRating());
+        holder.price.setText(list.get(position).getPrice());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, AllProducts.class);
-                intent.putExtra("hometype", list.get(position).getType());
+                Intent intent = new Intent(context, DetailedActivity.class);
+                intent.putExtra("details", list.get(position));
                 context.startActivity(intent);
             }
         });
@@ -65,16 +65,16 @@ public class NavCategoryAdapter extends RecyclerView.Adapter<NavCategoryAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView name, description, discount;
+        TextView name, description, rating, price;
 
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
 
-            imageView = itemView.findViewById(R.id.cat_nav_img);
-            name = itemView.findViewById(R.id.nav_cat_name);
-            description = itemView.findViewById(R.id.nav_cat_description);
-            discount = itemView.findViewById(R.id.nav_cat_discount);
-
+            imageView = itemView.findViewById(R.id.view_all_img);
+            name = itemView.findViewById(R.id.view_all_name);
+            description = itemView.findViewById(R.id.view_all_description);
+            rating = itemView.findViewById(R.id.view_all_rating);
+            price = itemView.findViewById(R.id.view_all_price);
 
         }
     }
