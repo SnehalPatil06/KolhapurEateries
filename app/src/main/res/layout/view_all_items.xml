@@ -17,7 +17,7 @@
             android:id="@+id/view_all_img"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:padding="15dp"
+            android:padding="5dp"
             android:background="@drawable/border"
             android:src="@drawable/restaurant"
             android:scaleType="centerInside"/>

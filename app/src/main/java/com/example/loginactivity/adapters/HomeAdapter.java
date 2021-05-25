@@ -1,6 +1,7 @@
 package com.example.loginactivity.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.loginactivity.ConsumerActivities.AllProducts;
+import com.example.loginactivity.ConsumerActivities.ViewPopularProducts;
 import com.example.loginactivity.R;
 import com.example.loginactivity.models.HomeCategory;
 
@@ -40,6 +43,15 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
 
         Glide.with(context).load(categoryList.get(position).getImg_url()).into(holder.catImg);
         holder.name.setText(categoryList.get(position).getName());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, AllProducts.class);
+                intent.putExtra("hometype", categoryList.get(position).getType());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
