@@ -1,6 +1,7 @@
 package com.example.loginactivity.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.loginactivity.ConsumerActivities.DetailedActivity;
 import com.example.loginactivity.R;
 import com.example.loginactivity.models.ViewAllModel;
 
@@ -43,6 +45,15 @@ public class ViewAllAdapter extends RecyclerView.Adapter<ViewAllAdapter.ViewHold
         holder.description.setText(list.get(position).getDescription());
         holder.rating.setText(list.get(position).getRating());
         holder.price.setText(list.get(position).getPrice());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailedActivity.class);
+                intent.putExtra("details", list.get(position));
+                context.startActivity(intent);
+            }
+        });
 
     }
 

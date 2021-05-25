@@ -1,6 +1,8 @@
 package com.example.loginactivity.models;
 
-public class ViewAllModel {
+import java.io.Serializable;
+
+public class ViewAllModel implements Serializable {
 
     String description;
     String img_url;

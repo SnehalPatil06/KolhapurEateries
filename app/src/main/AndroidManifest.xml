@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginActivity">
-        <activity android:name=".ConsumerActivities.AllProducts"></activity>
+        <activity android:name=".ConsumerActivities.DetailedActivity"></activity>
+        <activity android:name=".ConsumerActivities.AllProducts" />
         <activity android:name=".ConsumerActivities.ViewPopularProducts" />
         <activity
             android:name=".ConsumerActivities.drawerElements.NavigationDrawer"

@@ -29,4 +29,7 @@
     <string name="explore_products">Explore Products</string>
     <string name="recommended">Recommended</string>
     <string name="my_cart">My Cart</string>
+    <string name="products">Products</string>
+    <string name="product_details">Product Details</string>
+    <string name="description">description</string>
 </resources>
