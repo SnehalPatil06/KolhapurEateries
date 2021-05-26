@@ -1,5 +1,6 @@
 package com.example.loginactivity.adapters;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,15 +10,25 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.loginactivity.ConsumerActivities.drawerElements.MyCartsFragment;
 import com.example.loginactivity.R;
 import com.example.loginactivity.models.MyCartModel;
+import com.example.loginactivity.models.ViewAllModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -56,6 +67,32 @@ public class MyCartAdapter extends RecyclerView.Adapter<MyCartAdapter.ViewHolder
         holder.quantity.setText("Quantity : "+cartModelList.get(position).getTotalQuantity());
         holder.totalPrice.setText("Total "+cartModelList.get(position).getTotalPrice());
 
+        holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String uiid = mAuth.getCurrentUser().getUid();
+
+                db.collection("AddToCart/" +uiid+ "/CurrentUser")
+                       .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
+
+                        int game = 0;
+
+                        for (QueryDocumentSnapshot snapshot:task.getResult()){
+                            if(game==position){
+                                db.collection("AddToCart/" +uiid+ "/CurrentUser").document(snapshot.getId()).delete();
+                                Toast.makeText(context, cartModelList.get(position).getProductName()+" removed from cart please refresh the cart", Toast.LENGTH_SHORT).show();
+                            }
+                            game+=1;
+                        }
+
+                    }
+                });
+
+            }
+        });
 
     }
 
