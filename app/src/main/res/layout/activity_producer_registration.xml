@@ -53,6 +53,16 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.1" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/linear1"
+            android:layout_below="@+id/fullName"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
         <EditText
             android:id="@+id/email_register"
             android:layout_width="match_parent"
@@ -103,19 +113,52 @@
             app:layout_constraintVertical_bias="0.1" />
 
         <EditText
+            android:id="@+id/cityRegister"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fullName"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:drawableLeft="@drawable/ic_baseline_location_city_24"
+            android:drawablePadding="20dp"
+            android:hint="Locality"
+            android:singleLine="true" />
+        <EditText
+            android:id="@+id/stateRegister"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fullName"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:drawableLeft="@drawable/ic_baseline_account_balance_24"
+            android:drawablePadding="20dp"
+            android:hint="Country"
+            android:singleLine="true" />
+
+        <EditText
             android:id="@+id/address_register"
             android:layout_width="match_parent"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_below="@id/fullName"
+            android:layout_below="@id/cityRegister"
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_baseline_location_on_24"
             android:drawablePadding="20dp"
+            android:paddingTop="50dp"
             android:singleLine="true"
             android:ems="10"
             android:hint="Address"
             android:inputType="textPostalAddress"
+            android:layout_marginTop="-40dp"
             android:textColorHint="@android:color/tertiary_text_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -145,21 +188,69 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.1" />
 
+<ProgressBar
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:id="@+id/progressbarID"
+    android:layout_centerInParent="true"
+   android:visibility="gone"
+    />
 
+        <EditText
+            android:id="@+id/upiID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="UPI ID"
+            android:drawablePadding="20dp"
+            android:drawableLeft="@drawable/ic_baseline_add_to_home_screen_24"
+            android:layout_margin="16dp"
+            android:layout_below="@id/ifsc"/>
+
+        <EditText
+            android:id="@+id/accountNumberID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Account Number"
+            android:layout_margin="16dp"
+            android:drawablePadding="20dp"
+            android:drawableLeft="@drawable/ic_baseline_account_circle_24"
+            android:ems="10"
+            android:layout_below="@id/upiID"/>
+<ImageView
+    android:layout_width="40dp"
+    android:layout_height="40dp"
+    android:id="@+id/locationimageID"
+    android:src="@drawable/ic_baseline_location_on_24"
+    android:layout_toRightOf="@+id/register_title"
+    android:onClick="getLocation"
+    android:layout_marginLeft="35dp"
+    android:layout_marginTop="40dp"
+/>
+        <EditText
+            android:id="@+id/pancardID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Pan Card ID"
+            android:layout_margin="16dp"
+            android:drawablePadding="20dp"
+            android:drawableLeft="@drawable/ic_baseline_credit_card_24"
+            android:ems="10"
+            android:layout_below="@id/accountNumberID"/>
         <EditText
             android:id="@+id/ifsc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="IFSC Code of Bank"
             android:layout_margin="16dp"
+            android:ems="10"
+            android:drawablePadding="20dp"
+            android:drawableLeft="@drawable/ic_baseline_account_balance_24"
             android:layout_below="@id/passwrod_register"/>
-
-
-        <Button
+<Button
             android:id="@+id/register_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/ifsc"
+            android:layout_below="@id/pancardID"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"

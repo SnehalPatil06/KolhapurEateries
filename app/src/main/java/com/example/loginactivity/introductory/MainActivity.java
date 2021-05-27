@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 final PaperOnboardingFragment paperOnboardingFragment = PaperOnboardingFragment.newInstance(getDataForOnboarding());
 
+
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.add(R.id.fragment_manager,paperOnboardingFragment);
                 fragmentTransaction.commit();
@@ -110,3 +111,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
+//ifsc acount pan addhar other
