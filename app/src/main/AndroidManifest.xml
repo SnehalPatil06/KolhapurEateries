@@ -12,25 +12,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginActivity">
+        <activity android:name=".ConsumerActivities.DetailedActivity"></activity>
+        <activity android:name=".ConsumerActivities.AllProducts" />
+        <activity android:name=".ConsumerActivities.ViewPopularProducts" />
         <activity
-            android:name=".ConsumerActivities.NavigationDrawer"
+            android:name=".ConsumerActivities.drawerElements.NavigationDrawer"
             android:label="@string/title_activity_navigation_consumer"
             android:theme="@style/Theme.LoginActivity.NoActionBar"
-            android:windowSoftInputMode="stateAlwaysHidden"
-            ></activity>
-        <activity android:name=".Authentication.ProducerRegistration" android:windowSoftInputMode="stateAlwaysHidden"
-            />
-        <activity android:name=".Authentication.Register" android:windowSoftInputMode="stateAlwaysHidden"
-            />
-        <activity android:name=".Authentication.Login" android:windowSoftInputMode="stateAlwaysHidden"
-            />
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Authentication.ProducerRegistration"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Authentication.Register"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Authentication.Login"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".introductory.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <meta-data

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoginActivity</string>
+    <string name="app_name">FoodAPP</string>
     <string name="title_activity_consumer_dashboard">ConsumerDashboardActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -28,4 +28,8 @@
     <string name="view_all">View All</string>
     <string name="explore_products">Explore Products</string>
     <string name="recommended">Recommended</string>
+    <string name="my_cart">My Cart</string>
+    <string name="products">Products</string>
+    <string name="product_details">Product Details</string>
+    <string name="description">description</string>
 </resources>

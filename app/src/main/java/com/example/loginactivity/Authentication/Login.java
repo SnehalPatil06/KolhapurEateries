@@ -15,7 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.loginactivity.ConsumerActivities.NavigationDrawer;
+import com.example.loginactivity.ConsumerActivities.drawerElements.NavigationDrawer;
 import com.example.loginactivity.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

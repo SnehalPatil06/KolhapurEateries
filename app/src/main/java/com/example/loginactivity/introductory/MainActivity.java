@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +14,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.example.loginactivity.Authentication.Login;
-import com.example.loginactivity.ConsumerActivities.NavigationDrawer;
+import com.example.loginactivity.ConsumerActivities.drawerElements.NavigationDrawer;
 import com.example.loginactivity.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.ramotion.paperonboarding.PaperOnboardingFragment;
@@ -56,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 final PaperOnboardingFragment paperOnboardingFragment = PaperOnboardingFragment.newInstance(getDataForOnboarding());
 
+
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.add(R.id.fragment_manager,paperOnboardingFragment);
                 fragmentTransaction.commit();
@@ -93,10 +93,10 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<PaperOnboardingPage> getDataForOnboarding() {
 
         PaperOnboardingPage src1 = new PaperOnboardingPage("Fresh Food","Get best quality food everyday",
-                Color.parseColor("#87ceeb"),R.drawable.restaurant,R.drawable.dish);
+                Color.parseColor("#FFBB86FC"),R.drawable.restaurant,R.drawable.dish);
 
         PaperOnboardingPage src2 = new PaperOnboardingPage("Fast Delivery","Get fast delivery at your doorstep",
-                Color.parseColor("#87ceeb"),R.drawable.delivery,R.drawable.fast);
+                Color.parseColor("#FFB6C1"),R.drawable.delivery,R.drawable.fast);
 
         PaperOnboardingPage src3 = new PaperOnboardingPage("Easy Payment","Get Payment done as fast as Cheetah",
                 Color.parseColor("#87ceeb"),R.drawable.payment,R.drawable.card);
@@ -111,3 +111,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+
+//ifsc acount pan addhar other

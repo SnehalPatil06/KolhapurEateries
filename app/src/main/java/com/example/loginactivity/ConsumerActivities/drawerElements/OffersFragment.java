@@ -1,4 +1,4 @@
-package com.example.loginactivity.ConsumerActivities;
+package com.example.loginactivity.ConsumerActivities.drawerElements;
 
 import android.os.Bundle;
 
@@ -11,10 +11,9 @@ import android.view.ViewGroup;
 import com.example.loginactivity.R;
 
 
-public class MyCartsFragment extends Fragment {
+public class OffersFragment extends Fragment {
 
-
-    public MyCartsFragment() {
+    public OffersFragment() {
         // Required empty public constructor
     }
 
@@ -23,7 +22,6 @@ public class MyCartsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_carts, container, false);
+        return inflater.inflate(R.layout.fragment_offers, container, false);
     }
-
 }
